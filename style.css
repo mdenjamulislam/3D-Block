@@ -11,7 +11,7 @@ img {
     vertical-align: middle;
 }
 
-#perspective {
+#wrapper {
     position: relative;
     width: 640px;
     height: 446px;
@@ -21,14 +21,13 @@ img {
     cursor: default;
     transform-style: preserve-3d;
 }
-#perspective.rotated {
+#wrapper.rotated {
     transform: translateX(-30px) rotateX(51deg) rotateZ(-45deg);
 }
 
 .container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(6, 1fr);
     padding: 30px;
     position: relative;
     top: 30px;
@@ -37,7 +36,7 @@ img {
     font-size: 2rem;
     line-height: 3.8rem;
     transform-style: preserve-3d;
-    background-color: #bd85c8;
+    background-color: #595348;
 }
 .container,
 .container:before,
@@ -50,10 +49,11 @@ img {
     position: absolute;
     transform: rotateY(-90deg) translateX(-20px) translateZ(-0.1px);
     transform-origin: 0 100%;
-    left: 0;
+    left: 1px;
     top: 0;
     width: 20px;
     height: 100%;
+    background-color: #85694e;
 }
 .container:after {
     content: "";
@@ -65,6 +65,7 @@ img {
     bottom: 21px;
     width: 100%;
     height: 20px;
+    background-color: #85694e;
 }
 
 
@@ -78,12 +79,13 @@ img {
     transform-style: preserve-3d;
     text-align: center;
     padding: 12px;
+    background: url(/images/grass.jpg) center center / cover no-repeat;
 
     transition: all 0.2s ease-in-out;
 }
 .block:hover {
     z-index: 9;
-    transform: translateZ(20px) scale(1.1);
+    transform: translateZ(40px) scale(1.1);
 }
 .block.gap {
     margin-right: 15px;
@@ -91,7 +93,7 @@ img {
 .block,
 .block:before,
 .block:after,
-.block__back {
+.block_back {
     backface-visibility: hidden;
 }
 .block:before {
@@ -103,6 +105,7 @@ img {
     top: 0;
     width: 20px;
     height: 100%;
+    background-color: #85694e;
 }
 .block:after {
     content: "";
@@ -114,8 +117,9 @@ img {
     bottom: 21px;
     width: 100%;
     height: 20px;
+    background-color: #85694e;
 }
-.block__back {
+.block_back {
     position: absolute;
     top: 0;
     left: 0;
@@ -133,42 +137,7 @@ img {
 .black:after {
     background-color: black;
 }
-.pink {
-    background-color: #ff3b73;
-}
-.pink:before {
-    background-color: #ff5585;
-}
-.pink:after {
-    background-color: #ff2161;
-}
-.green {
-    background-color: #50fa7b;
-}
-.green:before {
-    background-color: #69fb8e;
-}
-.green:after {
-    background-color: #37f968;
-}
-.orange {
-    background-color: #ff9d48;
-}
-.orange:before {
-    background-color: #ffab61;
-}
-.orange:after {
-    background-color: #ff8f2e;
-}
-.purple {
-    background-color: #bd85c8;
-}
-.purple:before {
-    background-color: #c797d0;
-}
-.purple:after {
-    background-color: #b373c0;
-}
+
 .white {
     background-color: #ffffff;
 }
@@ -179,14 +148,14 @@ img {
     background-color: #f2f2f2;
 }
 
-.grass {
+.book {
     background: url(/images/grass.jpg) center center / cover no-repeat;
 }
-.grass:before {
-    background: url(/images/grass.jpg) center center / cover no-repeat;
+.book:before {
+    background-color: #85694e;
 }
-.grass:after {
-    background: url(/images/grass.jpg) center center / cover no-repeat;
+.book:after {
+    background-color: #85694e;
 }
 
 
@@ -211,5 +180,25 @@ img {
 .profile .name {
     font-size: 12px;
     line-height: 1.2rem;
-    color: #111;
+    color: #fff;
+}
+
+/* Tooltip */
+
+.tooltip {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(50%, 50%) rotateX(0deg) rotateZ(45deg);
+    padding: 10px;
+    background-color: #ff3b73;
+    color: #fff;
+    border-radius: 50% 50% 50% 0;
+    font-size: 12px;
+    line-height: 1.2rem;
+    display: none;
+}
+
+.block:hover .tooltip {
+    display: block;
 }
